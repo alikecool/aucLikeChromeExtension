@@ -16,10 +16,6 @@ Advantage: it's Totally client solution
 * No deal with FB
 * Quick deploy
 
-source code:
-* git: https://git.corp.yahoo.com/aliku/AuctionLikeChromeExtension
-* zip: https://docs.google.com/a/yahoo-inc.com/file/d/0BwjP3LyJtFBbaW5wSTVIRW5malE/edit?usp=sharing 
-
 How to use?
 * git fetch source or download zip from goog drive
 * Open Chrome browser. Visit chrome://extensions in your browser (or open up the Chrome menu by clicking the icon to the far right of the Omnibox:  . and select Extensions under the Tools menu to get to the same place).
