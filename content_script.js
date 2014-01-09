@@ -3,7 +3,9 @@ console.log('start');
 //var xmlHttp = null;
 var imgUrl = chrome.extension.getURL("like.png");
 var mapUrlDom = {};
+var aidURLs=[];
 
+/*
 function getByClass (className, parent) {
  	parent || (parent=document);
  	var descendants=parent.getElementsByTagName('*'), i=-1, e, result=[];
@@ -42,17 +44,19 @@ function getAidURLByClass (className, parent) {
 	}	
 	return result;
 }
+*/
+
 
 function buildMapUrlDom () {
 	var aidURL;
     var subdata, j, dd;
-    var descendants = getByClass('title');
+    //var descendants = getByClass('title');
  	var big = document.getElementsByTagName('*'), 
  		k, 
  		g;
  	k = -1;
 	while (g = big[++k]) {
-    	if ((' '+(g['class']||g.className)+' ').indexOf(' title ') > -1) {
+    	if ((' '+(g['class']||g.className)+' ').indexOf(' srp-pdtitle ellipsis ') > -1) {
 			subdata = g.getElementsByTagName('a');
 			//console.log(subdata);
 			j = -1;
@@ -62,10 +66,16 @@ function buildMapUrlDom () {
 					if (dd.href.indexOf('auction') > -1) {
 						aidURL = dd.href.substring(dd.href.indexOf('*')+1,
        									  		   dd.href.indexOf(';_ylt'));
-						if (big[k+2] &&
-							big[k+2].getElementsByTagName('td')[1]) 
+						//console.log(aidURL);
+						//console.log(big[k+2]);
+						//console.log(big[k+2].getElementsByTagName('div')[6]);
+						//console.log(big[k+20].getElementsByTagName('span')[0]);
+						if (big[k+2] && 
+							big[k+2].getElementsByTagName('div')[6]) 
 						{
-							mapUrlDom[aidURL] = big[k+2].getElementsByTagName('td')[1];
+							//mapUrlDom[aidURL] = big[k+2].getElementsByTagName('td')[1];
+							mapUrlDom[aidURL] = big[k+2].getElementsByTagName('div')[6];
+							aidURLs.push(aidURL);
 						}
 					}
 				}
@@ -146,7 +156,7 @@ function getFBData (aidURL, callback) {
 //console.log(getAidURLByClass('title'));
 buildMapUrlDom();
 console.log(1);
-var aidURLs = getAidURLByClass('title');
+//var aidURLs = getAidURLByClass('title');
 console.log(2);
 var i =	-1, 
 	aidURL;

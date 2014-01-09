@@ -30,9 +30,11 @@ function focusOrCreateTab(url) {
 chrome.browserAction.onClicked.addListener(function(tab) {
   chrome.tabs.executeScript(null, 
                            {file: "content_script.js"});
+  
   /*
   chrome.tabs.executeScript(null,
                            {code:"document.body.bgColor='red'"});
+  
   chrome.tabs.executeScript(null, 
                            {file: "yui-min.js"});
   //var manager_url = chrome.extension.getURL("manager.html");
